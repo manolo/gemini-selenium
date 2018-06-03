@@ -1,0 +1,21 @@
+{
+  "name": "gemini-selenium",
+  "version": "1.0.0",
+  "description": "A gemini plugin that starts selenium before running tests.",
+  "repository": "https://github.com/manolo/gemini-selenium/",
+  "main": "index.js",
+  "scripts": {},
+  "keywords": [
+    "gemini",
+    "gemini-plugin",
+    "selenium",
+    "selenium-standalone",
+    "testing"
+  ],
+  "author": "Manolo Carrasco Moñino",
+  "license": "Apache 2.0",
+  "dependencies": {
+    "selenium-standalone": "^6.0.0"
+  },
+  "devDependencies": {}
+}
