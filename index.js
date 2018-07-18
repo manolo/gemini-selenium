@@ -12,6 +12,7 @@ module.exports = function(gemini, opts) {
         server = child;
         server.stderr.on('data', function(data) {
           if (successCriteria.test(data.toString())) {
+            console.log(data.toString());
             resolve();
           }
           }
