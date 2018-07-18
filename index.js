@@ -15,7 +15,6 @@ module.exports = function(gemini, opts) {
             console.log(data.toString());
             resolve();
           }
-          }
         });
       });
     });
