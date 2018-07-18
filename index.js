@@ -2,6 +2,7 @@ var selenium = require('selenium-standalone');
 
 module.exports = function(gemini, opts) {
   var server;
+  var successCriteria = (opts.successCriteria instanceof RegExp) ? opts.successCriteria : /main: Started.*HTTP/;
 
   gemini.on('startRunner', function(runner) {
     console.log('Starting Selenium ...');
@@ -10,9 +11,11 @@ module.exports = function(gemini, opts) {
       selenium.start(function(err, child) {
         server = child;
         server.stderr.on('data', function(data) {
-          if (/main: Started.*HTTP/.test(data.toString())) {
+          if (successCriteria.test(data.toString())) {
             console.log(data.toString());
             resolve();
+          } else {
+            console.log(data.toString());
           }
         });
       });
@@ -25,4 +28,3 @@ module.exports = function(gemini, opts) {
     return server.kill();
   });
 };
-
